@@ -1,7 +1,7 @@
 # STIRFuturesFlyDisplay
 Display page which displays data related to STIR Future instrument prices. Page is used by perp traders as a reference on current market prices to influence trades.
 
-####### OVERVIEW ######
+## OVERVIEW ##
 
 All data is being collected from a MS SQL Database which is updated every 10 minutes with market data. AJAX is used to call PHP from Javascript and retrieve the data requested from the front end by the user. The PlotyJS library is used in order to display the data onto a chart which visualises the data in different ways depending on the page/tool that is being used.
 
