@@ -23,3 +23,18 @@ This page displays the current yield curve for each contract. It can also overla
 
 
 On all pages a control panel is also shown that enables more options to the page user. The panel can update the date range to set periods but also has the option to select a custom date range. This is all handled by JS, which then calls PHP using XHTML.
+
+
+## HOW TO USE ##
+Update the conn.php file with your SQL DB details.
+
+SQL DB will need three tables, one for each product (SONIA, SOFR, EURIBOR).
+
+SQL Tables will need the following collumn names in order to display data correctly:
+Date (26/10/2022 09:10)
+SoFF3	(data value int for fly of fly)
+SoFS3	(data value int for spread of fly)
+Contract	(contract name i.e. SR3 SEP22)
+High (high price for period as int)
+Low	 (low price for period as int)
+FoFF3 (the spread of the two other data values SoFF3 and SoFS3)
