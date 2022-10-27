@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BGL Dashboard</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/priceratioplus.js"></script>
+    <link rel="stylesheet" href="css/priceratioplus.css" />
+    <!-- Import the graph library-->
+    <script src="js/plotly-2.14.0.min.js"></script>
+    <!-- IMPORT FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="headimg"><img src="img/BGL.png" height="80px" /></div>
+    <div class="topnav" id="myTopnav">
+      <a href="index.html">PRICE RATIO</a>
+      <a href="priceratioplus.html" class="active">PRICE RATIO +</a>
+      <a href="productoverlay.html">PRODUCT OVERLAY</a>
+      <a href="flycurve.html">PR FLY CURVE</a>
+    </div>
+
+    <div id="homeTitle"><h1>Price Ratio +</h1></div>
+
+    <form id="top-form">
+      Select a product:
+      <select name="contracts" onchange="showContracts(this.value)">
+        <option value=""><b>Select a product:</b></option>
+        <option value="sonia">SONIA</option>
+        <option value="euribor">EURIBOR</option>
+        <option value="sofr">SOFR</option>
+      </select>
+    </form>
+    <div class="row">
+      <div class="column">
+        <div id="txtHint"><b>Contracts will be listed here...</b></div>
+        <div id="contractList"></div>
+      </div>
+      <div class="column">
+        <div id="contractDetails"><b></b></div>
+        <div id="chart" style="width: 900px; height: 550px"></div>
+        <div id="highLowValue"></div>
+        <div id="controlPanel" hidden="hidden">
+          <h3>Control Panel</h3>
+          <p>
+            Filter by date and time
+            <button onclick="dayFilter()" id="dayFilter">1 DAY</button>
+            <button onclick="day3Filter()" id="day3Filter">3 DAYS</button>
+            <button onclick="weekFilter()" id="weekFilter">7 DAYS</button>
+            <button onclick="day14Filter()" id="day14Filter">14 DAYS</button>
+            <button onclick="monthFilter()" id="monthFilter">30 DAYS</button>
+            <button onclick="showCustomRange()">CUSTOM RANGE</button>
+          </p>
+          <label class="customRange">Start Date/Time</label>
+          <input class="customRange" type="datetime-local" id="startDateTime" />
+          <label class="customRange">End Date/Time</label>
+          <input class="customRange" type="datetime-local" id="endDateTime" />
+          <button
+            class="customRange"
+            type="button"
+            id="applyDateTimeFilter"
+            onclick="dateTimeFilter()"
+          >
+            Apply
+          </button>
+        </div>
+      </div>
+      <div class="column"></div>
+    </div>
+  </body>
+</html>

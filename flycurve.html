@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>BGL Dashboard</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/flycurvescript.js"></script>
+    <link rel="stylesheet" href="css/flycurvestyle.css" />
+    <!-- Import the graph library-->
+    <script src="js/plotly-2.14.0.min.js"></script>
+    <!-- IMPORT FONT -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="headimg"><img src="img/BGL.png" height="80px" /></div>
+    <div class="topnav" id="myTopnav">
+      <a href="index.html">PRICE RATIO</a>
+      <a href="priceratioplus.html">PRICE RATIO +</a>
+      <a href="productoverlay.html">PRODUCT OVERLAY</a>
+      <a href="flycurve.html" class="active">PR FLY CURVE</a>
+    </div>
+
+    <div id="homeTitle"><h1>PR Fly Curve Display</h1></div>
+
+    <div class="row">
+      <div class="column">
+        <div class="switches">
+          <div>
+            <h3>SONIA FLY CURVE</h3>
+            <label class="rocker rocker-small">
+              <input type="checkbox" checked id="sonia" onclick="loadYield()" />
+              <span class="switch-left">Off</span>
+              <span class="switch-right">On</span>
+            </label>
+          </div>
+          <div>
+            <h3>EURIBOR FLY CURVE</h3>
+            <label class="rocker rocker-small">
+              <input
+                type="checkbox"
+                checked
+                id="euribor"
+                onclick="loadYield()"
+              />
+              <span class="switch-left">Off</span>
+              <span class="switch-right">On</span>
+            </label>
+          </div>
+          <div>
+            <h3>SOFR FLY CURVE</h3>
+            <label class="rocker rocker-small">
+              <input type="checkbox" checked id="sofr" onclick="loadYield()" />
+              <span class="switch-left">Off</span>
+              <span class="switch-right">On</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="column">
+        <div id="chart" style="width: 900px; height: 550px"></div>
+      </div>
+      <div class="column"></div>
+    </div>
+  </body>
+</html>
