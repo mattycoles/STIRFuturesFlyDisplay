@@ -8,7 +8,7 @@
     <script type="text/javascript" src="js/flycurvescript.js"></script>
     <link rel="stylesheet" href="css/flycurvestyle.css" />
     <!-- Import the graph library-->
-    <script src="js/plotly-2.14.0.min.js"></script>
+    <script src="js/plotly-2.16.1.min.js"></script>
     <!-- IMPORT FONT -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -32,39 +32,65 @@
 
     <div class="row">
       <div class="column">
-        <div class="switches">
+        <div>
+          <h4 style="padding: 0px 0px 0px 10px">
+            Select one or more contracts below:
+          </h4>
           <div>
-            <h3>SONIA FLY CURVE</h3>
-            <label class="rocker rocker-small">
-              <input type="checkbox" checked id="sonia" onclick="loadYield()" />
-              <span class="switch-left">Off</span>
-              <span class="switch-right">On</span>
-            </label>
-          </div>
-          <div>
-            <h3>EURIBOR FLY CURVE</h3>
-            <label class="rocker rocker-small">
+            <label>
+              <span></span>
               <input
                 type="checkbox"
-                checked
-                id="euribor"
+                id="sonia"
                 onclick="loadYield()"
+                style="float: left"
               />
-              <span class="switch-left">Off</span>
-              <span class="switch-right">On</span>
             </label>
+            <h3 style="overflow: hidden; padding: 0px 0px 0px 5px">
+              SONIA FLY CURVE
+            </h3>
           </div>
           <div>
-            <h3>SOFR FLY CURVE</h3>
-            <label class="rocker rocker-small">
-              <input type="checkbox" checked id="sofr" onclick="loadYield()" />
-              <span class="switch-left">Off</span>
-              <span class="switch-right">On</span>
+            <label>
+              <input
+                type="checkbox"
+                id="euribor"
+                onclick="loadYield()"
+                style="float: left"
+              />
             </label>
+            <h3 style="overflow: hidden; padding: 0px 0px 0px 5px">
+              EURIBOR FLY CURVE
+            </h3>
+          </div>
+          <div>
+            <label>
+              <input
+                type="checkbox"
+                id="sofr"
+                onclick="loadYield()"
+                style="float: left"
+              />
+            </label>
+            <h3 style="overflow: hidden; padding: 0px 0px 0px 5px">
+              SOFR FLY CURVE
+            </h3>
           </div>
         </div>
       </div>
       <div class="column">
+        <div id="replay" hidden="hidden">
+          <h3 id="replayText">The Current Fly Curve</h3>
+          <p>Click REPLAY to show the curve change</p>
+          <button onclick="reset()" id="resetButton">RESET</button>
+          <button onclick="replayDaily()" id="replayDailyButton">
+            REPLAY DAILY CURVE HISTORY
+          </button>
+          <button onclick="replayWeekly()" id="replayWeeklyButton">
+            REPLAY WEEKLY CURVE HISTORY
+          </button>
+          <p id="loading" hidden="hidden">LOADING...</p>
+        </div>
         <div id="chart" style="width: 900px; height: 550px"></div>
       </div>
       <div class="column"></div>
