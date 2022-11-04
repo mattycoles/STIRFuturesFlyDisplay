@@ -34,9 +34,9 @@ SQL Tables will need the following collumn names in order to display data correc
 
 Date (26/10/2022 09:10)
 
-SoFF3	(data value int for fly of fly)
+SoFF3	(data value int for Spread of fly of fly)
 
-SoFS3	(data value int for spread of fly)
+SoFS3	(data value int for Spread of spread of fly)
 
 Contract	(contract name i.e. SR3 SEP22)
 
